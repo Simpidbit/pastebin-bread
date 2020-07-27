@@ -1,6 +1,10 @@
 #include "http.h"
 
 
+/*
+ * Here is some regex for getting host info
+ *                               (host, port, protocol and so on)
+ */
 std::regex http::HttpMsg::host_reg
     = std::regex(".*://([A-Za-z\.]*):*[0-9]*/.*");
 std::regex http::HttpMsg::port_reg
@@ -33,6 +37,16 @@ int http::HttpMsg::initHostInfo()
     /* Get Protocol (HTTP or HTTPS) */
     regex_match(this->url, result_protocol, http::HttpMsg::protocol_reg);
 
+    /*
+     *    If result_port[1] is empty, there is no port in URL,
+     * so we can get port by protocol at the front of the URL,
+     * it means that get port from protocols' default port
+     *
+     *    For example:
+     *      HTTP protocol's default port is 80.
+     *      if there is no port in URL but the protocol is HTTP,
+     *      set the port to 80(HTTP default)
+     */
     if (result_port[1] == "") {
         if (result_protocol[1] == "http") {
             this->port = 80;        /* Default port 80 (HTTP) */
@@ -44,7 +58,11 @@ int http::HttpMsg::initHostInfo()
     else {
         this->port = stoi(result_port[1]);
     }
-
+    
+    /*
+     * Maybe the regex has something wrong.
+     * Return -1 on error.
+     */
     if (result_host[1] == "") {
         std::cout << "Host error" << std::endl;
         std::cout << result_host[1] << std::endl;
@@ -65,7 +83,7 @@ int http::HttpMsg::initHostInfo()
     return 0;
 }
 
-
+/* Do not use this main() function */
 int main()
 {
     http::HttpMsg msg("http://pastebin.com/ara/fuck/index.html");
