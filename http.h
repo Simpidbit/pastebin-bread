@@ -13,6 +13,8 @@
 #include <regex>
 #include <iostream>
 
+#include "version.h"
+
 
 namespace http {
     class HttpMsg;
@@ -32,33 +34,14 @@ class http::HttpMsg {
  public:
     std::string url;
     std::unordered_map<std::string, std::string> headers;
-    std::string body;
+    std::unordered_map<std::string, std::string> data;
 
  public:
     HttpMsg();
     HttpMsg(std::string,
             std::unordered_map<std::string, std::string>,
-            std::string
+            std::unordered_map<std::string, std::string> data
             );
-
-    std::string *wholeMsg();
-
- protected:
-    std::string host;
-    int port;
-    static std::vector<std::unordered_map<std::string, std::string> > ipaddrs;
-    static std::regex host_reg;
-    static std::regex port_reg;
-    static std::regex protocol_reg;
-
-    /*
-     * whole_msg_ is a whole HTTP/HTTPS message,
-     * It can be sent to HTTP server.
-     */
-    std::string whole_msg_;
-
- public:
-    int initHostInfo();
 };
 
 
