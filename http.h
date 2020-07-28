@@ -1,16 +1,8 @@
 #ifndef HTTP_H
 #define HTTP_H
 
-#include <unistd.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
-
 #include <string>
 #include <unordered_map>
-#include <vector>
-#include <list>
-#include <regex>
 #include <iostream>
 
 #include "version.h"
