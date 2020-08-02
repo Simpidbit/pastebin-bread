@@ -66,6 +66,7 @@ void clearPyLib()
 }
 
 /* Do not use this main() function */
+/*
 int main()
 {
     http::HttpMsg msg("https://pastebin.com/api/api_post.php",
@@ -79,3 +80,4 @@ int main()
     std::cout << r << std::endl;
     return 0;
 }
+*/

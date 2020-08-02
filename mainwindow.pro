@@ -16,14 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    pasteprompt.cpp \
     main.cpp \
+    sendpost.cpp \
     widget.cpp
 
 HEADERS += \
-    widget.h
+    pasteprompt.h \
+    sendpost.h \
+    widget.h \
 
 FORMS += \
+    pasteprompt.ui \
     widget.ui
+
+LIBS += -lcurl
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
