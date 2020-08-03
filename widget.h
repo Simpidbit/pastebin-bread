@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <string>
+#include <unordered_map>
 #include "pasteprompt.h"
 #include "sendpost.h"
 
@@ -17,11 +18,14 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
     std::string response_url;
+    PastePrompt *paste_prompt = nullptr;
+    PostData *post_datas_p = nullptr;
 
 private slots:
     void on_pasteBtn_released();
+
+    void on_timeChooseComboBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::Widget *ui;

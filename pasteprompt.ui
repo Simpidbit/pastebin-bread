@@ -6,105 +6,77 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>238</width>
-    <height>135</height>
+    <width>310</width>
+    <height>163</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="2">
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>0</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="0">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="1" colspan="2">
-    <widget class="QWidget" name="widget" native="true">
+   <item row="0" column="1" colspan="3">
+    <widget class="QWidget" name="mainWidget" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0" colspan="3">
-       <widget class="QLabel" name="label">
+      <item row="0" column="0">
+       <widget class="QLabel" name="titleLab">
         <property name="text">
-         <string>成功粘贴你的文本：</string>
+         <string>URL：</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLineEdit" name="lineEdit"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>PushButton</string>
+      <item row="1" column="0">
+       <widget class="QTextBrowser" name="urlBrowser">
+        <property name="enabled">
+         <bool>true</bool>
         </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+        <property name="maximumSize">
          <size>
-          <width>1</width>
-          <height>20</height>
+          <width>16777215</width>
+          <height>30</height>
          </size>
         </property>
-       </spacer>
+       </widget>
       </item>
-      <item row="2" column="2">
-       <widget class="QPushButton" name="pushButton_2">
+      <item row="2" column="0">
+       <widget class="QLabel" name="promptLab">
         <property name="text">
-         <string>PushButton</string>
+         <string>已复制到粘贴板
+直接粘贴即可！</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="1" column="3">
-    <spacer name="horizontalSpacer_3">
+   <item row="2" column="2">
+    <widget class="QPushButton" name="closeBtn">
+     <property name="text">
+      <string>我知道了</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>0</width>
-       <height>20</height>
+       <width>96</width>
+       <height>32</height>
       </size>
      </property>
     </spacer>
    </item>
-   <item row="2" column="1">
-    <spacer name="verticalSpacer">
+   <item row="2" column="3" colspan="2">
+    <spacer name="horizontalSpacer_4">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>0</height>
+       <width>98</width>
+       <height>32</height>
       </size>
      </property>
     </spacer>

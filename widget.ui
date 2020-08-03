@@ -66,74 +66,49 @@
       <enum>QPlainTextEdit::NoWrap</enum>
      </property>
     </widget>
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="geometry">
-      <rect>
-       <x>710</x>
-       <y>0</y>
-       <width>211</width>
-       <height>341</height>
-      </rect>
-     </property>
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="pasteTab">
-      <attribute name="title">
-       <string>Paste</string>
-      </attribute>
-      <widget class="QPushButton" name="pasteBtn">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>270</y>
-         <width>201</width>
-         <height>35</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Paste！</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="settingsTab">
-      <attribute name="title">
-       <string>Settings</string>
-      </attribute>
-     </widget>
-    </widget>
     <widget class="QWidget" name="editBtnWidget" native="true">
      <property name="geometry">
       <rect>
        <x>710</x>
-       <y>460</y>
-       <width>107</width>
-       <height>137</height>
+       <y>528</y>
+       <width>96</width>
+       <height>78</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QPushButton" name="clearEditBtn">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
          <string>清除</string>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+       <widget class="QPushButton" name="copyEditBtn">
+        <property name="minimumSize">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>0</width>
+          <height>30</height>
          </size>
         </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="copyEditBtn">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
          <string>复制</string>
         </property>
@@ -162,6 +137,65 @@
        <widget class="QLineEdit" name="titleEdit"/>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="pasteWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>50</y>
+       <width>211</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <widget class="QPushButton" name="pasteBtn">
+      <property name="geometry">
+       <rect>
+        <x>6</x>
+        <y>290</y>
+        <width>200</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Paste！</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="pasteSettingsWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>211</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="timeChooseLab">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>191</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>有效时长：</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="timeChooseComboBox">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>191</width>
+         <height>33</height>
+        </rect>
+       </property>
+       <property name="currentText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">

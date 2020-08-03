@@ -12,8 +12,10 @@ class PastePrompt : public QWidget
     Q_OBJECT
 
 public:
-    explicit PastePrompt(QWidget *parent = nullptr);
+    explicit PastePrompt(QWidget *parent = nullptr, int parent_w = 0, int parent_h = 0);
     ~PastePrompt();
+
+    void setTextBrowser(std::string);
 
 private:
     Ui::PastePrompt *ui;

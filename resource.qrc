@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/bgimg">
+        <file>widget-bg.jpg</file>
+    </qresource>
+</RCC>

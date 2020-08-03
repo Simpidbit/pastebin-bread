@@ -1,0 +1,30 @@
+QWidget {
+    background-color:#f9f9f9;
+}
+
+QPushButton, QComboBox {
+    border:0px solid;
+    background-color:#dfdfdf;
+}
+
+QPushButton:hover {
+    border:2px solid #333333;
+    background-color:#f3f3f3;
+}
+
+QPushButton:pressed {
+    background-color:#424242;
+    color:#ffffff;
+}
+
+
+QComboBox QAbstractItemView::item {
+    border:1px solid #eeeeee;
+    background-color:#f0f0f0;
+    color:#000000;
+}
+
+QComboBox:focus {
+    background-color:#cfcfcf;
+}
+

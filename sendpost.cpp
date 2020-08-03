@@ -28,6 +28,25 @@ std::string sendPostMsg(std::string data, long optpost, std::string url)
         curl_easy_cleanup(curl);
         return retdata_struct.data;
     } else {
-        return "Error: curl is NULL";
+        return "Error: CURL* curl == NULL";
     }
+}
+
+
+PostData::PostData(std::unordered_map<std::string, std::string> datas_)
+    : datas(datas_)
+{
+}
+
+PostData::PostData()
+{
+}
+
+std::string PostData::datasToStr() {
+    std::string data_str;
+    for (auto iter_pair = this->datas.begin(); iter_pair != this->datas.end(); iter_pair++) {
+        data_str += iter_pair->first + "=" + iter_pair->second + "&";
+    }
+    data_str.erase(data_str.end() - 1);
+    return data_str;
 }
