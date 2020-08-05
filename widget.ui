@@ -57,9 +57,9 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>50</y>
-       <width>711</width>
-       <height>551</height>
+       <y>60</y>
+       <width>701</width>
+       <height>541</height>
       </rect>
      </property>
      <property name="lineWrapMode">

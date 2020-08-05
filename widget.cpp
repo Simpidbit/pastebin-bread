@@ -99,3 +99,19 @@ void Widget::on_timeChooseComboBox_currentTextChanged(const QString &arg1)
         }
     }
 }
+
+void Widget::mouseMoveEvent(QMouseEvent *event)
+{
+    int local_x = event->localPos().x();
+    int local_y = event->localPos().y();
+
+    int global_x = event->globalX();
+    int global_y = event->globalY();
+
+    qDebug() << "global_x: " << global_x << "\n"
+             << "global_y: " << global_y << "\n"
+             << "local_x: " << local_x << "\n"
+             << "local_y: " << local_y << "\n";
+
+    this->move(event->globalX() - event->x(), event->globalX() - event->y());
+}

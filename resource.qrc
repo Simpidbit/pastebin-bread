@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/bgimg">
         <file>widget-bg.jpg</file>
+        <file>dragon-cat.gif</file>
     </qresource>
 </RCC>

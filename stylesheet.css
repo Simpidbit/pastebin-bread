@@ -28,3 +28,15 @@ QComboBox:focus {
     background-color:#cfcfcf;
 }
 
+QPlainTextEdit {
+    background-color:#f5f5f5;
+    border:1px solid #555555;
+}
+
+QLineEdit {
+    border:1px solid #555555;
+}
+
+QLineEdit:focus {
+    background-color:#f0f0f0;
+}

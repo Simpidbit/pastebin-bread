@@ -22,6 +22,9 @@ public:
     PastePrompt *paste_prompt = nullptr;
     PostData *post_datas_p = nullptr;
 
+protected:
+    void mouseMoveEvent(QMouseEvent *event);
+
 private slots:
     void on_pasteBtn_released();
 
