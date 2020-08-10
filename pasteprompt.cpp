@@ -2,7 +2,7 @@
 #include "ui_pasteprompt.h"
 
 PastePrompt::PastePrompt(QWidget *parent, int parent_w, int parent_h) :
-    QWidget(parent),
+    MyWidget(parent),
     ui(new Ui::PastePrompt)
 {
     ui->setupUi(this);
@@ -18,6 +18,8 @@ PastePrompt::PastePrompt(QWidget *parent, int parent_w, int parent_h) :
                 this->setTextBrowser("");
                 this->hide();
             });
+
+    this->__moveBtns();
 }
 
 PastePrompt::~PastePrompt()

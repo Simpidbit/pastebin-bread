@@ -6,12 +6,13 @@
 #include <unordered_map>
 #include "pasteprompt.h"
 #include "sendpost.h"
+#include "mywidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
-class Widget : public QWidget
+class Widget : public MyWidget
 {
     Q_OBJECT
 
@@ -21,9 +22,6 @@ public:
     std::string response_url;
     PastePrompt *paste_prompt = nullptr;
     PostData *post_datas_p = nullptr;
-
-protected:
-    void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
     void on_pasteBtn_released();

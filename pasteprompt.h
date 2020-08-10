@@ -2,12 +2,13 @@
 #define PASTEPROMPT_H
 
 #include <QWidget>
+#include "mywidget.h"
 
 namespace Ui {
 class PastePrompt;
 }
 
-class PastePrompt : public QWidget
+class PastePrompt : public MyWidget
 {
     Q_OBJECT
 

@@ -4,6 +4,7 @@ QWidget {
 
 QPushButton, QComboBox {
     border:0px solid;
+    padding:8px 9px 8px 9px;
     background-color:#dfdfdf;
 }
 

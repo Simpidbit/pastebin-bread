@@ -31,7 +31,7 @@ static const std::vector<std::pair<QString, std::string> > timeChooser
 
 
 Widget::Widget(QWidget *parent)
-    : QWidget(parent)
+    : MyWidget(parent)
     , ui(new Ui::Widget)
 {
     // Must init some member pointer before ui->setupUi
@@ -58,6 +58,9 @@ Widget::Widget(QWidget *parent)
 
     QStyledItemDelegate* itemDelegate = new QStyledItemDelegate();
     ui->timeChooseComboBox->setItemDelegate(itemDelegate);
+
+    this->__moveBtns();
+    qDebug() << "closeBtn:" << this->closeBtn->pos();
 }
 
 Widget::~Widget()
@@ -98,20 +101,4 @@ void Widget::on_timeChooseComboBox_currentTextChanged(const QString &arg1)
             break;
         }
     }
-}
-
-void Widget::mouseMoveEvent(QMouseEvent *event)
-{
-    int local_x = event->localPos().x();
-    int local_y = event->localPos().y();
-
-    int global_x = event->globalX();
-    int global_y = event->globalY();
-
-    qDebug() << "global_x: " << global_x << "\n"
-             << "global_y: " << global_y << "\n"
-             << "local_x: " << local_x << "\n"
-             << "local_y: " << local_y << "\n";
-
-    this->move(event->globalX() - event->x(), event->globalX() - event->y());
 }

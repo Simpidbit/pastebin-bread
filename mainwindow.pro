@@ -16,17 +16,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    login.cpp \
+    mywidget.cpp \
     pasteprompt.cpp \
     main.cpp \
     sendpost.cpp \
     widget.cpp
 
 HEADERS += \
+    login.h \
+    mywidget.h \
     pasteprompt.h \
     sendpost.h \
     widget.h \
 
 FORMS += \
+    login.ui \
+    mywidget.ui \
     pasteprompt.ui \
     widget.ui
 
