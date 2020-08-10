@@ -59,6 +59,15 @@ Widget::Widget(QWidget *parent)
     QStyledItemDelegate* itemDelegate = new QStyledItemDelegate();
     ui->timeChooseComboBox->setItemDelegate(itemDelegate);
 
+    connect(this->_closeBtn, &QPushButton::released,
+            [=]()
+            {
+                this->paste_prompt->hideSysTrayIcon();
+                this->paste_prompt->close();
+                this->close();
+            }
+    );
+
     this->_moveBtns();
 }
 
@@ -78,6 +87,7 @@ void Widget::on_pasteBtn_released()
     this->post_datas_p->datas["api_paste_name"] = paste_name;
 
     std::string post_msg_result = sendPostMsg(post_datas_p->datasToStr());
+
     if (post_msg_result.find("Bad API request") != std::string::npos
             || post_msg_result.find("Error: CURL* curl == NULL") != std::string::npos) {
         qDebug() << QString::fromStdString(post_msg_result);

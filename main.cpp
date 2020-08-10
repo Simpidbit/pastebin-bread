@@ -1,3 +1,4 @@
+#define DEBUG
 #include "widget.h"
 #include "login.h"
 #include "mywidget.h"

@@ -80,3 +80,8 @@ void MyWidget::_moveBtns()
     this->_closeBtn->move(this->width() - this->_closeBtn->width(), 0);
     this->_hideBtn->move(this->width() - this->_closeBtn->width() - this->_hideBtn->width() - 1, 0);
 }
+
+void MyWidget::hideSysTrayIcon()
+{
+    this->_sysTrayIcon->hide();
+}

@@ -18,6 +18,8 @@ public:
     explicit MyWidget(QWidget *parent = nullptr);
     ~MyWidget();
 
+    void hideSysTrayIcon();
+
 protected:
     QPushButton *_closeBtn{new QPushButton(this)};
     QPushButton *_hideBtn{new QPushButton(this)};
