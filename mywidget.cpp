@@ -12,42 +12,42 @@ MyWidget::MyWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    closeBtn->resize(30, 30);
-    hideBtn->resize(30, 30);
+    this->_closeBtn->resize(30, 30);
+    this->_hideBtn->resize(30, 30);
 
-    closeBtn->setIcon(QIcon(QPixmap(":/uiimg/close.png")));
-    hideBtn->setIcon(QIcon(QPixmap(":/uiimg/hide.png")));
+    this->_closeBtn->setIcon(QIcon(QPixmap(":/uiimg/close.png")));
+    this->_hideBtn->setIcon(QIcon(QPixmap(":/uiimg/hide.png")));
 
     this->setWindowFlag(Qt::FramelessWindowHint);
 
-    this->sysTrayIcon = new QSystemTrayIcon(this);
-    this->sysTrayIcon->setIcon(QIcon(QPixmap(":/uiimg/systrayicon.jpg")));
-    this->sysTrayIcon->setToolTip("Pastebin bread");
-    //this->sysTrayIcon->show();
+    this->_sysTrayIcon = new QSystemTrayIcon(this);
+    this->_sysTrayIcon->setIcon(QIcon(QPixmap(":/uiimg/systrayicon.jpg")));
+    this->_sysTrayIcon->setToolTip("Pastebin bread");
+    //this->_sysTrayIcon->show();
 
-    connect(this->sysTrayIcon, &QSystemTrayIcon::activated,
+    connect(this->_sysTrayIcon, &QSystemTrayIcon::activated,
             [=](QSystemTrayIcon::ActivationReason reason)
             {
                 if (reason == QSystemTrayIcon::Trigger) {
                     this->show();
-                    this->sysTrayIcon->hide();
+                    this->_sysTrayIcon->hide();
                 }
             }
     );
 
-    connect(this->closeBtn, &QPushButton::released,
+    connect(this->_closeBtn, &QPushButton::released,
             [=]()
             {
                 this->close();
-                this->sysTrayIcon->hide();
+                this->_sysTrayIcon->hide();
             }
     );
 
-    connect(this->hideBtn, &QPushButton::released,
+    connect(this->_hideBtn, &QPushButton::released,
             [=]()
             {
                 this->hide();
-                this->sysTrayIcon->show();
+                this->_sysTrayIcon->show();
             }
     );
 }
@@ -59,33 +59,24 @@ MyWidget::~MyWidget()
 
 void MyWidget::mousePressEvent(QMouseEvent *event)
 {
-    qDebug() << "press";
-    this->is_press = true;
-
-    this->beginPoint = this->pos();
-    this->beginCursorPoint = event->globalPos();
-
+    this->_beginPoint = this->pos();
+    this->_beginCursorPoint = event->globalPos();
     QWidget::mousePressEvent(event);
 }
 
 void MyWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    qDebug() << "move";
-
-    this->move(this->beginPoint + (event->globalPos() - this->beginCursorPoint));
-
+    this->move(this->_beginPoint + (event->globalPos() - this->_beginCursorPoint));
     QWidget::mouseMoveEvent(event);
 }
 
 void MyWidget::mouseReleaseEvent(QMouseEvent *event)
 {
-    qDebug() << "release";
-    this->is_press = false;
     QWidget::mouseReleaseEvent(event);
 }
 
-void MyWidget::__moveBtns()
+void MyWidget::_moveBtns()
 {
-    this->closeBtn->move(this->width() - closeBtn->width(), 0);
-    this->hideBtn->move(this->width() - closeBtn->width() - hideBtn->width() - 1, 0);
+    this->_closeBtn->move(this->width() - this->_closeBtn->width(), 0);
+    this->_hideBtn->move(this->width() - this->_closeBtn->width() - this->_hideBtn->width() - 1, 0);
 }

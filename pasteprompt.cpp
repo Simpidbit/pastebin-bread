@@ -19,7 +19,7 @@ PastePrompt::PastePrompt(QWidget *parent, int parent_w, int parent_h) :
                 this->hide();
             });
 
-    this->__moveBtns();
+    this->_moveBtns();
 }
 
 PastePrompt::~PastePrompt()

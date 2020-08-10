@@ -19,19 +19,18 @@ public:
     ~MyWidget();
 
 protected:
-    QPushButton *closeBtn{new QPushButton(this)};
-    QPushButton *hideBtn{new QPushButton(this)};
+    QPushButton *_closeBtn{new QPushButton(this)};
+    QPushButton *_hideBtn{new QPushButton(this)};
 
-    bool is_press{false};
-    QPoint beginPoint;
-    QPoint beginCursorPoint;
+    QPoint _beginPoint;
+    QPoint _beginCursorPoint;
 
-    QSystemTrayIcon *sysTrayIcon;
+    QSystemTrayIcon *_sysTrayIcon;
 
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
-    void __moveBtns();
+    void _moveBtns();
 
 private:
     Ui::MyWidget *ui;

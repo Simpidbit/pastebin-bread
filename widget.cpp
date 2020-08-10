@@ -59,8 +59,7 @@ Widget::Widget(QWidget *parent)
     QStyledItemDelegate* itemDelegate = new QStyledItemDelegate();
     ui->timeChooseComboBox->setItemDelegate(itemDelegate);
 
-    this->__moveBtns();
-    qDebug() << "closeBtn:" << this->closeBtn->pos();
+    this->_moveBtns();
 }
 
 Widget::~Widget()
