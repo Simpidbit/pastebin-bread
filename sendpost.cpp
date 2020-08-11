@@ -1,5 +1,7 @@
 #include "sendpost.h"
+
 #include <QDebug>
+#include <curl/curl.h>
 
 static size_t sendPostMsg_writeFunc(char *ptr, size_t size, size_t nmemb, void *userp)
 {

@@ -1,7 +1,6 @@
 #ifndef PASTEPROMPT_H
 #define PASTEPROMPT_H
 
-#include <QWidget>
 #include "mywidget.h"
 
 namespace Ui {

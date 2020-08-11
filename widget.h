@@ -1,12 +1,12 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QWidget>
-#include <string>
-#include <unordered_map>
-#include "pasteprompt.h"
-#include "sendpost.h"
 #include "mywidget.h"
+#include <boost/shared_ptr.hpp>
+
+class QWidget;
+class PastePrompt;
+class PostData;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -19,13 +19,12 @@ class Widget : public MyWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-    std::string response_url;
-    PastePrompt *paste_prompt = nullptr;
-    PostData *post_datas_p = nullptr;
+
+    PastePrompt*                    pastePrompt {nullptr};
+    boost::shared_ptr<PostData>     post_datas_p {NULL};
 
 private slots:
     void on_pasteBtn_released();
-
     void on_timeChooseComboBox_currentTextChanged(const QString &arg1);
 
 private:

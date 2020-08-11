@@ -7,6 +7,7 @@
 #include <QString>
 #include <QApplication>
 #include <QDebug>
+#include <curl/curl.h>
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +16,7 @@ int main(int argc, char *argv[])
 
     QString qss;
     std::ifstream ifs;
-    ifs.open("/home/ghostworker/code/cpp/programs/pastebin-bread/stylesheet.css", std::ios::in);
+    ifs.open("../pastebin-bread/stylesheet.css", std::ios::in);
     qDebug() << ifs.is_open();
     char c;
     while ((c = ifs.get()) != EOF) {

@@ -2,9 +2,10 @@
 #define MYWIDGET_H
 
 #include <QWidget>
-#include <QPushButton>
-#include <QPoint>
-#include <QSystemTrayIcon>
+
+class QPushButton;
+class QPoint;
+class QSystemTrayIcon;
 
 namespace Ui {
 class MyWidget;
@@ -18,21 +19,20 @@ public:
     explicit MyWidget(QWidget *parent = nullptr);
     ~MyWidget();
 
-    void hideSysTrayIcon();
+    void hideSysTrayIcon() const noexcept;
 
 protected:
-    QPushButton *_closeBtn{new QPushButton(this)};
-    QPushButton *_hideBtn{new QPushButton(this)};
+    QPushButton *_closeBtn  {nullptr};
+    QPushButton *_hideBtn   {nullptr};
 
-    QPoint _beginPoint;
-    QPoint _beginCursorPoint;
+    QPoint *_beginPoint         {nullptr};
+    QPoint *_beginCursorPoint   {nullptr};
 
-    QSystemTrayIcon *_sysTrayIcon;
+    QSystemTrayIcon *_sysTrayIcon {nullptr};
 
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void _moveBtns();
+    void mousePressEvent(QMouseEvent *event) noexcept;
+    void mouseMoveEvent(QMouseEvent *event) noexcept;
+    void _moveBtns() const noexcept;
 
 private:
     Ui::MyWidget *ui;

@@ -1,12 +1,17 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "sendpost.h"
+#include "pasteprompt.h"
+#include "sendpost.h"
 
 #include <string>
 #include <map>
 #include <utility>
 #include <vector>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 
+#include <QWidget>
 #include <QDebug>
 #include <QClipboard>
 #include <QString>
@@ -35,8 +40,8 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     // Must init some member pointer before ui->setupUi
-    this->post_datas_p = new PostData((std::unordered_map<std::string, std::string>){ {"api_dev_key","_oEOdQg9gJEe786KEgIyH5ssC0v4l7ij"} });
-    this->paste_prompt = new PastePrompt(nullptr, this->width(), this->height());
+    this->post_datas_p = boost::make_shared<PostData>((std::unordered_map<std::string, std::string>){ {"api_dev_key","_oEOdQg9gJEe786KEgIyH5ssC0v4l7ij"} });
+    this->pastePrompt = new PastePrompt(nullptr, this->width(), this->height());
 
 
     ui->setupUi(this);
@@ -62,8 +67,8 @@ Widget::Widget(QWidget *parent)
     connect(this->_closeBtn, &QPushButton::released,
             [=]()
             {
-                this->paste_prompt->hideSysTrayIcon();
-                this->paste_prompt->close();
+                this->pastePrompt->hideSysTrayIcon();
+                this->pastePrompt->close();
                 this->close();
             }
     );
@@ -94,12 +99,13 @@ void Widget::on_pasteBtn_released()
         return;
     }
 
+
     QClipboard *clipboard = QApplication::clipboard();
     QString originalText = QString::fromStdString(post_msg_result);
     clipboard->setText(originalText);
 
-    paste_prompt->setTextBrowser(post_msg_result);
-    paste_prompt->show();
+    pastePrompt->setTextBrowser(post_msg_result);
+    pastePrompt->show();
 }
 
 void Widget::on_timeChooseComboBox_currentTextChanged(const QString &arg1)
