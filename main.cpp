@@ -39,7 +39,7 @@ int main_(int argc, char *argv[])       // main() for test
 
     QString qss;
     std::ifstream ifs;
-    ifs.open("/home/ghostworker/code/cpp/programs/pastebin-bread/stylesheet.css", std::ios::in);
+    ifs.open("../pastebin-bread/stylesheet.css", std::ios::in);
     qDebug() << ifs.is_open();
     char c;
     while ((c = ifs.get()) != EOF) {
