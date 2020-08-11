@@ -1,8 +1,4 @@
 <RCC>
-    <qresource prefix="/bgimg">
-        <file>widget-bg.jpg</file>
-        <file>dragon-cat.gif</file>
-    </qresource>
     <qresource prefix="/uiimg">
         <file>close.png</file>
         <file>hide.png</file>
